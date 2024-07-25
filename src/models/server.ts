@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
 
-const cors = require("cors");
-
-class Server {
+export class Server {
+  app;
+  port;
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
@@ -30,6 +31,4 @@ class Server {
       console.log(`Listening on port ${this.port}`)
     );
   }
-}
-
-module.exports = Server;
+};
