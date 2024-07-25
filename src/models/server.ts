@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+
+import authRoutes from '@routes/auth';
+import userRoutes from '@routes/user';
 import { connectMongoDB } from "@services/mongoDB";
 
 export class Server {
@@ -13,7 +16,7 @@ export class Server {
     // Midlewares
     this.middlewares();
     // App routes load
-    this.routes();
+    this.loadRoutes();
   }
 
   middlewares() {
@@ -29,8 +32,9 @@ export class Server {
     await connectMongoDB();
   }
 
-  routes() {
-    this.app.use("/api/auth", require("../routes/auth"));
+  loadRoutes() {
+    this.app.use("/api/auth", authRoutes);
+    this.app.use("/api/user", userRoutes);
   }
 
   listen() {
