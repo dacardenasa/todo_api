@@ -1,8 +1,7 @@
 import "module-alias/register";
-import * as dotEnv from  "dotenv";
-import { Server } from "@models/server";
+require ("dotenv").config();
 
-dotEnv.config();
+import { Server } from "@models/server";
 
 const server = new Server();
 
