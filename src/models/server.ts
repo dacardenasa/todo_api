@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import { connectMongoDB } from "@services/mongoDB";
 
 export class Server {
   app;
@@ -7,6 +8,8 @@ export class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
+    // Connect DB
+    this.connectDB();
     // Midlewares
     this.middlewares();
     // App routes load
@@ -22,6 +25,10 @@ export class Server {
     this.app.use(express.static("public"));
   }
 
+  async connectDB() {
+    await connectMongoDB();
+  }
+
   routes() {
     this.app.use("/api/auth", require("../routes/auth"));
   }
@@ -31,4 +38,4 @@ export class Server {
       console.log(`Listening on port ${this.port}`)
     );
   }
-};
+}
