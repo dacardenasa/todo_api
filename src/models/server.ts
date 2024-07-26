@@ -3,6 +3,7 @@ import cors from "cors";
 
 import authRoutes from '@routes/auth';
 import userRoutes from '@routes/user';
+import taskRoutes from '@routes/task';
 
 import { connectMongoDB } from "@services/mongoDB";
 
@@ -35,7 +36,8 @@ export class Server {
 
   loadRoutes() {
     this.app.use("/api/auth", authRoutes);
-    this.app.use("/api/user", userRoutes);
+    this.app.use("/api/users", userRoutes);
+    this.app.use("/api/tasks", taskRoutes);
   }
 
   listen() {
