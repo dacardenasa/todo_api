@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const MONGO_DB_URI =
   process.env.MONGO_DB_URI ?? "mongodb://127.0.0.1:27017/todo_db";

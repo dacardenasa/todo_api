@@ -8,7 +8,12 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, "The password of the user is required"],
-  }
+  },
 });
+
+UserSchema.methods.toJSON = function () {
+  const { __v, _id, ...user } = this.toObject();
+  return { ...user, uid: _id };
+};
 
 export default model("User", UserSchema);
