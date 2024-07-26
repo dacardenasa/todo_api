@@ -27,6 +27,7 @@
     "@constants": "dist/constants",
     "@controllers": "dist/controllers",
     "@helpers": "dist/helpers",
+    "@interfaces": "dist/interfaces",
     "@middlewares": "dist/middlewares",
     "@models": "dist/models",
     "@routes": "dist/routes",

@@ -4,7 +4,6 @@ import { check } from "express-validator";
 import { login } from "@controllers/auth";
 import { validateFields } from "@middlewares/validate-fields";
 import { hasUserAccount } from "@middlewares/validate-user";
-import { isAuthenticated } from "@middlewares/validate-auth";
 
 const router = Router();
 

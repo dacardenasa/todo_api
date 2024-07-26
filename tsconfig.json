@@ -33,6 +33,7 @@
       "@constants/*": ["constants/*"],
       "@controllers/*": ["controllers/*"],
       "@helpers/*": ["helpers/*"],
+      "@interfaces/*": ["interfaces/*"],
       "@middlewares/*": ["middlewares/*"],
       "@models/*": ["models/*"],
       "@routes/*": ["routes/*"],

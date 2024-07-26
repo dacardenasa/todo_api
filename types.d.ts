@@ -3,12 +3,16 @@ declare namespace Express {
     authUser: {
       username: string;
       password: string;
+      _id: string;
+      _v: number;
     };
   }
   export interface Response {
     authUser: {
       username: string;
       password: string;
+      _id: string;
+      _v: number;
     };
   }
 }

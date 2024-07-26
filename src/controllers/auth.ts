@@ -20,7 +20,6 @@ export async function login(req: Request, res: Response) {
       res.json({ user, token });
     }
   } catch (err) {
-    console.info(err);
     res.status(500).json({ message: err instanceof Error ? err.message : err });
   }
 }
