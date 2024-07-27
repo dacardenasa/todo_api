@@ -3,12 +3,14 @@ import { check } from "express-validator";
 
 import { validateFields } from "@middlewares/validate-fields";
 import { validateJWT } from "@middlewares/validate-jwt";
-import { createTask, deleteTask, getTasks, updateTask } from "@controllers/task";
+import { createTask, deleteTask, getTaskById, getTasks, updateTask } from "@controllers/task";
 import { isTaskRegistered } from "@middlewares/validate-task";
 
 const router = Router();
 
 router.get("/show", [validateJWT], getTasks);
+
+router.get("/:id", [validateJWT], getTaskById);
 
 router.post(
   "/create",
