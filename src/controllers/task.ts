@@ -11,6 +11,16 @@ export async function getTasks(req: Request, res: Response) {
   }
 }
 
+export async function getTaskById(req: Request, res: Response) {
+  const { id } = req.params;
+  try {
+    const task = await Task.findById(id);
+    res.json(task);
+  } catch (err) {
+    res.status(500).json({ message: err instanceof Error ? err.message : err });
+  }
+}
+
 export async function createTask(req: Request, res: Response) {
   try {
     const { content, title, date } = req.body;

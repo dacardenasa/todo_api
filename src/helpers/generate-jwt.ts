@@ -7,7 +7,7 @@ export function generateJWT(uid = "") {
       payload,
       process.env.SECRET_OR_PRIVATE_KEY as Secret,
       {
-        expiresIn: "4h"
+        expiresIn: "24h"
       },
       (error, token) => {
         error ? reject(error) : resolve(token);
