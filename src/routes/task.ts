@@ -8,7 +8,7 @@ import { isTaskRegistered } from "@middlewares/validate-task";
 
 const router = Router();
 
-router.get("/show", [validateJWT], getTasks);
+router.get("/", [validateJWT], getTasks);
 
 router.get("/:id", [validateJWT], getTaskById);
 
