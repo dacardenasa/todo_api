@@ -13,7 +13,7 @@ export async function login(req: Request, res: Response) {
       const isTheSamePassword = bcrypt.compareSync(password, user.password);
       if (!isTheSamePassword) {
         return res.status(400).json({
-          error: `The username or password is incorrect!`
+          message: `The username or password is incorrect!`
         });
       }
       const token = await generateJWT(user._id.toString());
