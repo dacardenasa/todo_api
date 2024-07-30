@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 
+import swaggerUi from "swagger-ui-express";
+
 import authRoutes from '@routes/auth';
 import userRoutes from '@routes/user';
 import taskRoutes from '@routes/task';
+import specs from '@swagger/swagger';
 
 import { connectMongoDB } from "@services/mongoDB";
 
@@ -28,6 +31,7 @@ export class Server {
     this.app.use(express.json());
     // Public directory
     this.app.use(express.static("public"));
+    // Swagger docs
   }
 
   async connectDB() {
@@ -38,6 +42,7 @@ export class Server {
     this.app.use("/api/auth", authRoutes);
     this.app.use("/api/users", userRoutes);
     this.app.use("/api/tasks", taskRoutes);
+    this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(specs));
   }
 
   listen() {

@@ -12,7 +12,7 @@ export async function validateJWT(
   const token = req.header("x-token");
   if (!token) {
     return res.status(401).json({
-      msg: "AuthToken is required"
+      message: "AuthToken is required"
     });
   }
 
@@ -27,14 +27,14 @@ export async function validateJWT(
 
     if (!authUser) {
       return res.status(401).json({
-        msg: "user does not exist!"
+        message: "user does not exist!"
       });
     }
     req.authUser = authUser;
     next();
   } catch (error) {
     return res.status(500).json({
-      msg: error instanceof Error ? error.message : error
+      message: error instanceof Error ? error.message : error
     });
   }
 }
